@@ -11,6 +11,13 @@ void TaoMang_PThon15(int a[], int &n) {
 		printf("%d\t",a[i] );
 	}
 }
+void XuatDSMang(int a[], int n) {
+	printf("\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("%d\t",a[i]);
+	}
+}
 void TaoMang_PTChan(int a[], int &n) {
 	printf("\nNhap so phan tu cua mang:");
 	scanf("%d", &n);
@@ -30,19 +37,27 @@ int LinearSearch(int a[], int n, int &x) {
 	}
 	return 0;
 }
-void DoiCho(int x, int y) {
-	int temp = x;
-	x = y;
-	y = temp;
-}
-void InterchangeSort(int a[], int n) {
-
+void InterchangeSortInCrease(int a[], int n) {
+	for (int i = 0; i < n-1; i++)
+	{
+		for (int j = i+1; j < n; j++)
+		{
+			if (a[i]>a[j]){
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
 }
 int main() {
 	int n,x;
 	int a[100],b[100];
 	TaoMang_PThon15(a, n);
 	//TaoMang_PTChan(b, n);
-	if (LinearSearch(a, n, x) == 1) printf("\nCo tim thay!"); else printf("\nKhong tim thay!");
+	//if (LinearSearch(a, n, x) == 1) printf("\nCo tim thay!"); else printf("\nKhong tim thay!");
+	printf("\nSap xep theo thuat toan InterChangeSort");
+	InterchangeSortInCrease(a, n);
+	XuatDSMang(a, n);
 	getch();
 }
